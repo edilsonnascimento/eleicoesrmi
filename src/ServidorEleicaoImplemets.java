@@ -12,6 +12,16 @@ public class ServidorEleicaoImplemets implements Eleicao{
         return "Olá cliente!";
     }
 
+    @Override
+    public void somaVotos(Integer quantidadeVotos) throws RemoteException {
+
+    }
+
+    @Override
+    public void recebeVotos(List<Candidato> candidatos) throws RemoteException {
+
+    }
+
     public static void main(String[] args) {
         try {
 

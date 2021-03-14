@@ -8,7 +8,7 @@ public class Urna {
 
     public Urna() {
         carregaCandidatos();
-        vota();
+        simulaVotacao();
     }
 
     private static void accept(Candidato candidato) {
@@ -19,13 +19,15 @@ public class Urna {
         this.candidatos.add(new Candidato("Gandalf"));
         this.candidatos.add(new Candidato("Frodo Bolseiro"));
         this.candidatos.add(new Candidato("Samwise Gamgee"));
+        System.out.println("Candidatos Carregados na URNA...");
     }
 
-    public void vota(){
+    public void simulaVotacao(){
         Random gerador = new Random();
         this.candidatos.get(0).setQuantidadeVotos(gerador.nextInt(100));
         this.candidatos.get(1).setQuantidadeVotos(gerador.nextInt(100));
         this.candidatos.get(2).setQuantidadeVotos(gerador.nextInt(100));
+        System.out.println("Votos apurados...");
 
     }
 

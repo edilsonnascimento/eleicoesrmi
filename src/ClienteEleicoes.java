@@ -11,6 +11,9 @@ public class ClienteEleicoes {
 
              Eleicao stub = (Eleicao) regitro.lookup("eleicoes");
 
+             Urna urna = new Urna();
+
+
             System.out.println(stub.testaConexao());
 
 
