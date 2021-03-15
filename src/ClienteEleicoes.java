@@ -13,12 +13,14 @@ public class ClienteEleicoes {
 
              Urna urna = new Urna();
 
-
             System.out.println(stub.testaConexao());
+
+            stub.recebeVotos(urna);
 
 
         }catch (Exception e){
             System.out.println("Erro ao se conectar com o servidor");
+            e.printStackTrace();
         }
     }
 }

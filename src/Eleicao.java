@@ -8,5 +8,5 @@ public interface Eleicao extends Remote {
 
        void somaVotos(Integer quantidadeVotos) throws RemoteException;
 
-       void recebeVotos(List<Candidato> candidatos) throws RemoteException;
+       void recebeVotos(Urna urna) throws RemoteException;
 }

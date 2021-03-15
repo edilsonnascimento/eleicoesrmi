@@ -1,12 +1,15 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Urna {
+public class Urna implements Serializable {
 
     private List<Candidato> candidatos = new ArrayList<>();
+    private Integer votosTotal;
 
     public Urna() {
+        this.votosTotal = 0;
         carregaCandidatos();
         simulaVotacao();
     }
@@ -27,7 +30,8 @@ public class Urna {
         this.candidatos.get(0).setQuantidadeVotos(gerador.nextInt(100));
         this.candidatos.get(1).setQuantidadeVotos(gerador.nextInt(100));
         this.candidatos.get(2).setQuantidadeVotos(gerador.nextInt(100));
-        System.out.println("Votos apurados...");
+        votosTotal = this.SomaVotos();
+        System.out.println("Votos da URNA: " + votosTotal);
 
     }
 
@@ -35,8 +39,21 @@ public class Urna {
         return candidatos;
     }
 
-    public void mostraCandidatos(){
+    public void mostrarUrna(){
         this.candidatos.forEach(Urna::accept);
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Total de votos: " + this.votosTotal);
+        System.out.println("----------------------------------------------------------\n");
     }
 
+    public Integer getVotosTotal() {
+        return votosTotal;
+    }
+
+    private Integer SomaVotos(){
+        return  this.candidatos
+                .parallelStream()
+                .mapToInt(c -> c.getQuantidadeVotos())
+                .sum();
+    }
 }

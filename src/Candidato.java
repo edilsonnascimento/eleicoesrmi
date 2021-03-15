@@ -1,4 +1,6 @@
-public class Candidato {
+import java.io.Serializable;
+
+public class Candidato implements Serializable {
 
     private String nome;
     private Integer quantidadeVotos;
